@@ -1,0 +1,169 @@
+@font-face {
+  font-family: digitalFont;
+  src: url(fonts/digitalmono.ttf);
+}
+
+:root {
+  --main-bg: #242423;
+  --clock-border: #ff8800;
+  --clock-bg: #04151f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(images/bcg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.clock-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock-face {
+  background: var(--clock-bg);
+  height: 520px;
+  width: 520px;
+  border: var(--clock-border) 20px solid;
+  border-radius: 50% 50%;
+  position: relative;
+}
+
+.hands {
+  z-index: 100;
+  transform-origin: left;
+  transform: rotate(0deg);
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.26, 0.63, 0.52, 1.29);
+}
+.seconds-hand {
+  background: #ff0000;
+  width: 40%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.minutes-hand {
+  background: #96f812;
+  width: 35%;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.hours-hand {
+  background: yellow;
+  width: 25%;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.dig {
+  background: #003554;
+  height: 60px;
+  width: 30%;
+  border: var(--clock-border) 2px solid;
+  border-radius: 5px;
+  color: #96f812;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.digital-time {
+  position: absolute;
+  top: 15%;
+  left: 35%;
+  font-family: digitalFont;
+  font-size: 25px;
+}
+.digital-date {
+  position: absolute;
+  bottom: 15%;
+  right: 35%;
+  font-family: digitalFont;
+  font-size: 25px;
+}
+.dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50% 50%;
+  background-color: var(--main-bg);
+  z-index: 200;
+  position: absolute;
+  top: 47.5%;
+  left: 47.5%;
+}
+.numbers {
+  height: 10%;
+  width: 10%;
+  color: antiquewhite;
+  font-size: 25px;
+  background: #003554;
+  border-radius: 50% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#twelve {
+  position: absolute;
+  left: 45%;
+  top: 1%;
+}
+#three {
+  position: absolute;
+  right: 1%;
+  top: 45%;
+}
+#six {
+  position: absolute;
+  right: 45%;
+  bottom: 1%;
+}
+#nine {
+  position: absolute;
+  left: 1%;
+  top: 45%;
+}
+
+@media screen and (max-width: 992px) {
+  .clock-face {
+    height: 380px;
+    width: 380px;
+  }
+  .dig {
+    height: 30px;
+  }
+  .digital-date,
+  .digital-time {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .clock-face {
+    height: 220px;
+    width: 220px;
+  }
+  .dig {
+    background: transparent;
+    border: none;
+  }
+  .numbers {
+    font-size: 16px;
+  }
+  .dot {
+    height: 10px;
+    width: 10px;
+  }
+}
